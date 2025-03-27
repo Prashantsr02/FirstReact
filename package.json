@@ -1,0 +1,32 @@
+{
+  "name": "firstreact",
+  "version": "1.0.0",
+  "description": "First React app",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Prashantsr02/FirstReact.git"
+  },
+  "keywords": [
+    "React",
+    "Dev"
+  ],
+  "author": "Prashant",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Prashantsr02/FirstReact/issues"
+  },
+  "homepage": "https://github.com/Prashantsr02/FirstReact#readme",
+  "devDependencies": {
+    "parcel": "^2.14.2"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "browserslist": [
+    "last 10 versions"
+  ]
+}
