@@ -1,3 +1,110 @@
 #heading{
     color: red;
 }
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #fafafa;
+  }
+  
+  /* Header Styling */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 32px;
+    background-color: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .logo img {
+    height: 50px;
+  }
+  
+  /* Navbar */
+  .Navbar .Nav-items {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .Navbar .Nav-items li {
+    font-size: 16px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s;
+  }
+  
+  .Navbar .Nav-items li:hover {
+    color: #ff5722;
+  }
+  
+  /* Body Section */
+  .body {
+    padding: 32px;
+  }
+  
+  .Searchbar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .button {
+    width: 200px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff5722;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  
+  .button:hover {
+    background-color: #e64a19;
+  }
+  
+  /* Restaurant Container */
+  .res-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .res-logo {
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    padding: 20px;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  .res-image {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+  
+  .res-logo h1 {
+    font-size: 24px;
+    margin-top: 16px;
+    color: #333;
+  }
+  
+  .res-logo h2 {
+    font-size: 18px;
+    margin: 8px 0;
+    color: #757575;
+  }
+  
+  .res-logo h3 {
+    font-size: 16px;
+    color: #999;
+  }
