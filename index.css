@@ -74,37 +74,44 @@ body {
   /* Restaurant Container */
   .res-container {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
   }
   
-  .res-logo {
+  .res-card {
+    height: 500x;
+    width: 250px;
+    margin: 20px;
     background-color: white;
     border-radius: 16px;
     box-shadow: 0 4px 16px rgba(0,0,0,0.1);
-    padding: 20px;
-    max-width: 400px;
+  
     text-align: center;
+  }
+  .res-card :hover{
+    cursor: pointer;
+    border : 1px solid black;
   }
   
   .res-image {
     width: 100%;
-    height: auto;
+    height: 50%;
     border-radius: 16px;
   }
   
   .res-logo h1 {
-    font-size: 24px;
+    font-size: 8px;
     margin-top: 16px;
     color: #333;
   }
   
   .res-logo h2 {
-    font-size: 18px;
+    font-size: 6px;
     margin: 8px 0;
     color: #757575;
   }
   
   .res-logo h3 {
-    font-size: 16px;
+    font-size: 5px;
     color: #999;
   }
