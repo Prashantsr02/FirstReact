@@ -2,6 +2,9 @@ import { LOGO_URL } from "../utils/constant";
 
 
 export const Header = () => {
+
+  const[loginbutton, setLoginbutton]=useState("Login");
+
     return (
       <div className="header">
         <div className="logo">
@@ -12,7 +15,12 @@ export const Header = () => {
             <li>About</li>
             <li>Contact US</li>
             <li>Cart</li>
-            <li>Log in</li>
+            <button className="login"
+              onClick={()=>{
+                loginbutton==="Login" ? setLoginbutton("Logout"): setLoginbutton("Login");
+              }}
+            
+            >Log in</button>
           </ul>
         </div>
       </div>
