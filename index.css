@@ -115,3 +115,13 @@ body {
     font-size: 5px;
     color: #999;
   }
+
+  .Shimmer-container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .Shimmer-card{
+    height: 500px;
+    width: 250px;
+  }
