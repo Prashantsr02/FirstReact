@@ -3,11 +3,13 @@ import { reslist } from "../utils/mockdata";
 import { Rescontainer } from "./Resturants";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import {resdata} from "../utils/constant";
 
 export const Body = () => {
   const [listOfResturant, setListOfResturant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredResaurant] = useState([]);
+ 
 
   useEffect(() => {
     fetchdata();
@@ -15,7 +17,7 @@ export const Body = () => {
 
   const fetchdata = async () => {
     const data = await fetch(
-      "https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.63270&lng=77.21980&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+      RESDATA_URL
     );
     const json = await data.json();
     console.log(json);
@@ -67,7 +69,7 @@ export const Body = () => {
         </div>
         <div className="res-container">
           {filteredRestaurant.map((res) => (
-            <Rescontainer key={res.info.id} resdata={res} />
+            <Link to={"/Restaurants/"+ res.info.id} key={res.info.id}><Rescontainer resdata={res} /></Link>
           ))}
         </div>
       </div>

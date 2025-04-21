@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
 import About from "./components/About";
+import RestaurantMenu from "./components/RestaurantMenu"
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -30,6 +31,10 @@ const approuter= createBrowserRouter([
   {
     path:"/Contact",
     element:<Contact />
+  },
+  {
+    path:"/Restaurants/:resid",
+    element:<RestaurantMenu />
   }
 ])
 
