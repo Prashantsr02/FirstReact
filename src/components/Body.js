@@ -4,6 +4,8 @@ import { Rescontainer } from "./Resturants";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import {resdata} from "../utils/constant";
+import { RESDATA_URL } from "../utils/constant";
+import { Link } from "react-router-dom";
 
 export const Body = () => {
   const [listOfResturant, setListOfResturant] = useState([]);
