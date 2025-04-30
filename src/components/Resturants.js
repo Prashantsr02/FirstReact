@@ -22,4 +22,15 @@ export const Rescontainer = (props) => {
       </div>
     );
   };
+
+export const EnhancedRescontainer=(Rescontainer)=>{
+  return (props)=>{
+    return(
+      <div>
+        <label>Promoted</label>
+        <Rescontainer {...props}/>
+      </div>
+    )
+  }
+}  
   

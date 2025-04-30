@@ -1,9 +1,9 @@
 import Header from "./Header";
 import { reslist } from "../utils/mockdata";
-import { Rescontainer } from "./Resturants";
+import { EnhancedRescontainer } from "./Resturants";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
-import {resdata} from "../utils/constant";
+import { resdata } from "../utils/constant";
 import { RESDATA_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
 
@@ -11,7 +11,7 @@ export const Body = () => {
   const [listOfResturant, setListOfResturant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredResaurant] = useState([]);
- 
+  const PromotedRestaurants = EnhancedRescontainer(EnhancedRescontainer);
 
   useEffect(() => {
     fetchdata();
@@ -71,7 +71,15 @@ export const Body = () => {
         </div>
         <div className="res-container">
           {filteredRestaurant.map((res) => (
-            <Link to={"/Restaurants/"+ res.info.id} key={res.info.id}><Rescontainer resdata={res} /></Link>
+            <Link to={"/Restaurants/" + res.info.id} key={res.info.id}>
+              {res.info.promoted ? 
+              (
+                <PromotedRestaurants resdata={res} />
+              ) :
+              (
+                <Rescontainer resdata={res} />
+              )}
+            </Link>
           ))}
         </div>
       </div>
