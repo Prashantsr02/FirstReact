@@ -8,24 +8,24 @@ export const Header = () => {
   const onlineStatus = useOnlineStatus();
 
   return (
-    <div className="header">
-      <div className="logo">
+    <div className="flex justify-between bg-amber-200 shadow-2xl">
+      <div className="size-32 p-4">
         <Link to="/">
           <img src={LOGO_URL} />
         </Link>
       </div>
-      <div className="Navbar">
-        <ul className="Nav-items">
-          <li>Online Status :{onlineStatus ? " 🟢" : " 🔴"}</li>
-          <li>
+      <div className=" flex items-center">
+        <ul className="flex  flex-wrap py-3">
+          <li className="px-2 " >Online Status :{onlineStatus ? " 🟢" : " 🔴"}</li>
+          <li className="px-2">
             <Link to="About"> About </Link>
           </li>
-          <li>
+          <li className="px-2">
             <Link to="/Contact">Contact US</Link>{" "}
           </li>
-          <li>Cart</li>
+          <li className="px-2 cursor-pointer">Cart</li>
           <button
-            className="login"
+            className="px-2 cursor-pointer"
             onClick={() => {
               loginbutton === "Login"
                 ? setLoginbutton("Logout")

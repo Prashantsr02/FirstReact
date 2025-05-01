@@ -36,17 +36,18 @@ export const Body = () => {
   ) : (
     <div>
       <div className="body">
-        <div className="Filter">
+        <div className=" search m-4 p-4">
+          <div className="m-4 p-4">
           <input
             type="text"
-            className="search"
+            className="border border-b-black px-4 m-4"
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
-            className="search-restaurant"
+            className="p-4 m-4 bg-orange-600"
             onClick={() => {
               const filterrestaurants = filteredRestaurant.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -56,6 +57,7 @@ export const Body = () => {
           >
             Search Restaurants
           </button>
+          </div>
           <button
             className="button"
             onClick={() => {

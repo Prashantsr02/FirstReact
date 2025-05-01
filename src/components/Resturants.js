@@ -6,9 +6,9 @@ export const Rescontainer = (props) => {
     const{name,cuisines,costForTwo,avgRating} = resdata?.info;
     const{slaString}=resdata?.info.sla;
     return (
-      <div className="res-card">
+      <div className="flex size-44">
         <img
-          className="res-image"
+          className="flex flex-wrap"
           alt="res-logo"
           src=
             {CDN_URL +
