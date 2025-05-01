@@ -6,12 +6,15 @@ import Shimmer from "./Shimmer";
 import { resdata } from "../utils/constant";
 import { RESDATA_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
 
 export const Body = () => {
   const [listOfResturant, setListOfResturant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredResaurant] = useState([]);
   const PromotedRestaurants = EnhancedRescontainer(EnhancedRescontainer);
+  const{loggedinUser,setUser} = useContext(UserContext);
 
   useEffect(() => {
     fetchdata();
@@ -69,6 +72,13 @@ export const Body = () => {
             }}
           >
             Top Rated Restaurants
+          </button>
+        </div>
+        <div>
+          <button
+          value={loggedinUser}
+          onChange={(e)=>setUser(e.target.value)}
+          >
           </button>
         </div>
         <div className="res-container">

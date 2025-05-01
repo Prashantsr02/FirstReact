@@ -1,7 +1,10 @@
 import { CDN_URL } from "../utils/constant";
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
 
 
 export const Rescontainer = (props) => {
+    const {loggedInUser} = useContext(UserContext);
     const { resdata } = props;
     const{name,cuisines,costForTwo,avgRating} = resdata?.info;
     const{slaString}=resdata?.info.sla;
@@ -19,6 +22,7 @@ export const Rescontainer = (props) => {
         <h4>{costForTwo}</h4>
         <h4>{slaString}</h4>
         <h4>{avgRating}</h4>
+        <h4>{loggedInUser}</h4>
       </div>
     );
   };

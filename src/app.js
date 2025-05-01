@@ -4,44 +4,60 @@ import { Body } from "./components/Body";
 import Header from "./components/Header";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
-
+import UserContext from "./utils/UserContext";
 import RestaurantMenu from "./components/RestaurantMenu"
 import { createBrowserRouter, Outlet, Route, RouterProvider } from "react-router-dom";
 import { lazy } from "react";
 import Shimmer from "./components/Shimmer";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-const Comp= lazy(()=>import("./components/About"));
+
+const Comp = lazy(() => import("./components/About"));
+
+const {loggedinUser, setUser} = useContext(UserContext);
+
 const Applayout = () => {
-  return(
-  <div className="app">
-    <Header />
-    <Outlet />
-  </div>
+
+  const [user, setUser] = useState();
+  
+  useEffect(()=>{
+    const data={
+      name:"Prashant"
+    };
+    setUser(data.name);
+  },[]);
+  
+  return (
+    <UserContext.provider value={{ loggedinUser: user, setUser }}>
+      <div className="app">
+        <Header />
+        <Outlet />
+      </div>
+    </UserContext.provider>
   );
 };
-const approuter= createBrowserRouter([
+const approuter = createBrowserRouter([
   {
     path: "/",
-    element : <Applayout/> ,
-    errorElement: <Error/>,
-    children:[{
-        path:"/About",
-        element: <Suspense fallback={<Shimmer/>}><Comp /></Suspense>
-      },
-      {
-        path:"/Contact",
-        element:<Contact />
-      },
-      {
-        path:"/Restaurants/:resId",
-        element:<RestaurantMenu />
-      },
-      {
-        path:"/",
-        element: <Body/>
-      }]
-    }
+    element: <Applayout />,
+    errorElement: <Error />,
+    children: [{
+      path: "/About",
+      element: <Suspense fallback={<Shimmer />}><Comp /></Suspense>
+    },
+    {
+      path: "/Contact",
+      element: <Contact />
+    },
+    {
+      path: "/Restaurants/:resId",
+      element: <RestaurantMenu />
+    },
+    {
+      path: "/",
+      element: <Body />
+    }]
+  }
 ])
 
 root.render(<RouterProvider router={approuter} />);
