@@ -4,17 +4,17 @@ import { Body } from "./components/Body";
 import Header from "./components/Header";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
-import UserContext from "./utils/UserContext";
+import UserContext from "./components/UserContext";
 import RestaurantMenu from "./components/RestaurantMenu"
 import { createBrowserRouter, Outlet, Route, RouterProvider } from "react-router-dom";
 import { lazy } from "react";
 import Shimmer from "./components/Shimmer";
-
+import { useState,useEffect } from "react";
+import UserContext from "./components/UserContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const Comp = lazy(() => import("./components/About"));
 
-const {loggedinUser, setUser} = useContext(UserContext);
 
 const Applayout = () => {
 
@@ -28,12 +28,12 @@ const Applayout = () => {
   },[]);
   
   return (
-    <UserContext.provider value={{ loggedinUser: user, setUser }}>
+    <UserContext.Provider value={{ loggedinUser: user, setUser }}>
       <div className="app">
         <Header />
         <Outlet />
       </div>
-    </UserContext.provider>
+    </UserContext.Provider>
   );
 };
 const approuter = createBrowserRouter([

@@ -1,13 +1,12 @@
-import Header from "./Header";
-import { reslist } from "../utils/mockdata";
 import { EnhancedRescontainer } from "./Resturants";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
-import { resdata } from "../utils/constant";
 import { RESDATA_URL } from "../utils/constant";
 import { Link } from "react-router-dom";
-import UserContext from "../utils/UserContext";
+import UserContext from "./UserContext"
 import { useContext } from "react";
+import { Rescontainer } from "./Resturants";
+
 
 export const Body = () => {
   const [listOfResturant, setListOfResturant] = useState([]);
@@ -39,18 +38,18 @@ export const Body = () => {
   ) : (
     <div>
       <div className="body">
-        <div className=" search m-4 p-4">
-          <div className="m-4 p-4">
+        <div className="flex m-4 p-4">
+          <div className="">
           <input
             type="text"
-            className="border border-b-black px-4 m-4"
+            className="border border-b-black "
             value={searchText}
             onChange={(e) => {
               setSearchText(e.target.value);
             }}
           />
           <button
-            className="p-4 m-4 bg-orange-600"
+            className="px-3 py-1 m-4 bg-orange-400 cursor-pointer rounded-xl"
             onClick={() => {
               const filterrestaurants = filteredRestaurant.filter((res) =>
                 res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -58,11 +57,11 @@ export const Body = () => {
               setFilteredResaurant(filterrestaurants);
             }}
           >
-            Search Restaurants
+            Search
           </button>
           </div>
           <button
-            className="button"
+            className="cursor-pointer px-3 py-1 m-4 bg-orange-400 rounded-xl"
             onClick={() => {
               const filterdlist = listOfResturant.filter(
                 (res) => res.info.avgRating > 4.2
@@ -76,12 +75,13 @@ export const Body = () => {
         </div>
         <div>
           <button
+          className="border border-b-black"
           value={loggedinUser}
           onChange={(e)=>setUser(e.target.value)}
           >
           </button>
         </div>
-        <div className="res-container">
+        <div className="flex flex-wrap ">
           {filteredRestaurant.map((res) => (
             <Link to={"/Restaurants/" + res.info.id} key={res.info.id}>
               {res.info.promoted ? 
