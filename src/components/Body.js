@@ -12,7 +12,7 @@ export const Body = () => {
   const [listOfResturant, setListOfResturant] = useState([]);
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredResaurant] = useState([]);
-  const PromotedRestaurants = EnhancedRescontainer(EnhancedRescontainer);
+  const PromotedRestaurants = EnhancedRescontainer(Rescontainer);
   const{loggedinUser,setUser} = useContext(UserContext);
 
   useEffect(() => {
