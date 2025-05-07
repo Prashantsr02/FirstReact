@@ -7,8 +7,8 @@ import { useState } from "react";
 const RestaurantMenu = () => {
   const { resId } = useParams();
 
-  const[showItems,setShowItems] = useState(false);  
-
+  const [showItems, setShowItems] = useState();
+  const [showIndex, setShowIndex] = useState(-1);
   const resInfo = useRestaurantMenu(resId);
 
   if (resInfo === null) return <Shimmer />;
@@ -25,16 +25,14 @@ const RestaurantMenu = () => {
 
   return (
     <div className="text-center">
-      <h1 className=" content-center font-bold text-2xl p-4">
-        {" "}
-        {name}
-      </h1>
+      <h1 className=" content-center font-bold text-2xl p-4"> {name}</h1>
       <h1 className="items-center font-bold text-xl">Menu</h1>
-      {cateogories.map((category) => (
+      {cateogories.map((category, index) => (
         <RestaurantsCategory
           data={category.card.card}
           key={category.card.card.title}
-          showItems={true}
+          showItems={showIndex === index}
+          setShowIndex={() => setShowIndex(showIndex === index ? -1 : index)}
         />
       ))}
     </div>

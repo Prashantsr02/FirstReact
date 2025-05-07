@@ -11,6 +11,9 @@ import { lazy } from "react";
 import Shimmer from "./components/Shimmer";
 import { useState,useEffect } from "react";
 import UserContext from "./components/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const Comp = lazy(() => import("./components/About"));
@@ -28,12 +31,14 @@ const Applayout = () => {
   },[]);
   
   return (
+    <Provider store={appStore}>
     <UserContext.Provider value={{ loggedinUser: user, setUser }}>
       <div className="app">
         <Header />
         <Outlet />
       </div>
     </UserContext.Provider>
+    </Provider>
   );
 };
 const approuter = createBrowserRouter([
