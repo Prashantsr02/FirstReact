@@ -13,7 +13,7 @@ import { useState,useEffect } from "react";
 import UserContext from "./components/UserContext";
 import { Provider } from "react-redux";
 import appStore from "./utils/appStore";
-
+import Cart from "./components/Cart";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 const Comp = lazy(() => import("./components/About"));
@@ -61,6 +61,10 @@ const approuter = createBrowserRouter([
     {
       path: "/",
       element: <Body />
+    },
+    {
+      path: "/cart",
+      element: <Cart />
     }]
   }
 ])

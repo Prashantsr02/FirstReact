@@ -1,20 +1,20 @@
 import { CDN_URL } from "../utils/constant";
-import useDispatch from "react-redux";
-import {addItems} from "./utils/cartSlice";
+import { useDispatch } from "react-redux";
+import { addItem } from "../utils/cartSlice";
 
 
-const ListItem = ({ items }) => {
+const ListItem = ({ items, hideAddButton=false }) => {
   console.log(items);
   const dispatch=useDispatch();
 
   const handleAddItems = (item) => {
-    dispatch(addItems(item));
+    dispatch(addItem(item));
   };
   return (
     <div>
-      {items.map((item) => (
+      {items.map((item,index) => (
         <div
-          key={item.card.info.id}
+          key={item.card.info.id + "-" + index}
           className="border-b-1 text-left flex justify-between"
         >
           <div className="w-9/12 size-42 items-center-safe">
@@ -31,10 +31,11 @@ const ListItem = ({ items }) => {
                 src={CDN_URL + item.card.info.imageId}
                 className="w-full h-full object-cover py-2 rounded-xl"
               ></img>
-              <button className="absolute bottom-[-12px] left-1/2 transform -translate-x-1/2
+              {!hideAddButton && <button className="absolute bottom-[-12px] left-1/2 transform -translate-x-1/2
                            bg-amber-400 text-white px-4 py-1 text-sm rounded-full shadow-md
-                           hover:bg-amber-500 transition duration-200"
-                           onClick={()=>handleAddItems(item)}>Add</button>
+                           hover:bg-amber-500 transition duration-200 cursor-pointer"
+                           onClick={()=>handleAddItems(item)}>Add</button>}
+              
             </div>
           </div>
       ))}

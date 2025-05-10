@@ -33,7 +33,9 @@ export const Header = () => {
           <li className="px-2">
             <Link to="/Contact">Contact US</Link>{" "}
           </li>
-          <li className="px-2 cursor-pointer font-bold">Cart - {cartItems.length} </li>
+          <li className="px-2 cursor-pointer font-bold">
+          <Link to="/cart"> Cart - {cartItems.length} </Link> 
+            </li>
           <button
             className="px-2 cursor-pointer"
             onClick={() => {
