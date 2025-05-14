@@ -13,7 +13,7 @@ export const Body = () => {
   const [searchText, setSearchText] = useState("");
   const [filteredRestaurant, setFilteredResaurant] = useState([]);
   const PromotedRestaurants = EnhancedRescontainer(Rescontainer);
-  const{loggedinUser,setUser} = useContext(UserContext);
+  const { loggedinUser, setUser } = useContext(UserContext);
 
   useEffect(() => {
     fetchdata();
@@ -40,25 +40,26 @@ export const Body = () => {
       <div className="body">
         <div className="flex m-4 p-4">
           <div className="">
-          <input
-            type="text"
-            className="border border-b-black "
-            value={searchText}
-            onChange={(e) => {
-              setSearchText(e.target.value);
-            }}
-          />
-          <button
-            className="px-3 py-1 m-4 bg-orange-400 cursor-pointer rounded-xl"
-            onClick={() => {
-              const filterrestaurants = filteredRestaurant.filter((res) =>
-                res.info.name.toLowerCase().includes(searchText.toLowerCase())
-              );
-              setFilteredResaurant(filterrestaurants);
-            }}
-          >
-            Search
-          </button>
+            <input
+              testid="search"
+              type="text"
+              className="border border-b-black "
+              value={searchText}
+              onChange={(e) => {
+                setSearchText(e.target.value);
+              }}
+            />
+            <button
+              className="px-3 py-1 m-4 bg-orange-400 cursor-pointer rounded-xl"
+              onClick={() => {
+                const filterrestaurants = filteredRestaurant.filter((res) =>
+                  res.info.name.toLowerCase().includes(searchText.toLowerCase())
+                );
+                setFilteredResaurant(filterrestaurants);
+              }}
+            >
+              Search
+            </button>
           </div>
           <button
             className="cursor-pointer px-3 py-1 m-4 bg-orange-400 rounded-xl"
@@ -75,22 +76,23 @@ export const Body = () => {
         </div>
         <div>
           <button
-          className="border border-b-black"
-          value={loggedinUser}
-          onChange={(e)=>setUser(e.target.value)}
+            className="border border-b-black"
+            value={loggedinUser}
+            onChange={(e) => setUser(e.target.value)}
           >
           </button>
         </div>
-        <div className="flex flex-wrap ">
+        <div className="flex flex-wrap"
+          test-id="res-list">
           {filteredRestaurant.map((res) => (
             <Link to={"/Restaurants/" + res.info.id} key={res.info.id}>
-              {res.info.promoted ? 
-              (
-                <PromotedRestaurants resdata={res} />
-              ) :
-              (
-                <Rescontainer resdata={res} />
-              )}
+              {res.info.promoted ?
+                (
+                  <PromotedRestaurants resdata={res} />
+                ) :
+                (
+                  <Rescontainer resdata={res} />
+                )}
             </Link>
           ))}
         </div>
