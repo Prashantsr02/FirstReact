@@ -16,7 +16,6 @@ it("Should render the header component with login button", () => {
   );
 
   const loginButton= screen.getByRole("button", { name: "Login" });
-  console.log(loginButton)
   expect(loginButton).toBeInTheDocument();
 });
 
@@ -35,7 +34,6 @@ it("Should change Login button to Logout", () => {
 
   const logoutButton= screen.getByRole("button", { name: "Logout" });
 
-  console.log(loginButton)
 
   expect(logoutButton).toBeInTheDocument();
 

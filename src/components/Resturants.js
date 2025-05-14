@@ -5,11 +5,11 @@ import { useContext } from "react";
 export const Rescontainer = (props) => {
   const { loggedInUser } = useContext(UserContext);
   const { resdata } = props;
-  console.log(resdata);
-  const { name, cuisines, costForTwo, avgRating, cloudinaryImageId, sla } = resdata?.info || {};
-  const slaString  = sla?.slaString;
+  const { name, cuisines, costForTwo, avgRating, cloudinaryImageId, sla } =
+    resdata?.info || {};
+  const slaString = sla?.slaString;
   return (
-    <div className="ml-24 w-[250px] h-[400px]">
+    <div className="ml-24 w-[250px] h-[400px]" data-testid="restaurant">
       <img
         className="flex flex-wrap w-[250px] h-[200px] rounded-2xl"
         alt="res-logo"

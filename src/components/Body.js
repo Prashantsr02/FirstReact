@@ -24,7 +24,7 @@ export const Body = () => {
       RESDATA_URL
     );
     const json = await data.json();
-    console.log(json);
+  
     setListOfResturant(
       json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -41,7 +41,7 @@ export const Body = () => {
         <div className="flex m-4 p-4">
           <div className="">
             <input
-              testid="search"
+              data-testid="inputBox"
               type="text"
               className="border border-b-black "
               value={searchText}
@@ -51,6 +51,7 @@ export const Body = () => {
             />
             <button
               className="px-3 py-1 m-4 bg-orange-400 cursor-pointer rounded-xl"
+              data-testid="search"
               onClick={() => {
                 const filterrestaurants = filteredRestaurant.filter((res) =>
                   res.info.name.toLowerCase().includes(searchText.toLowerCase())
@@ -68,7 +69,7 @@ export const Body = () => {
                 (res) => res.info.avgRating > 4.2
               );
               setFilteredResaurant(filterdlist);
-              console.log(filterdlist);
+              
             }}
           >
             Top Rated Restaurants
@@ -82,8 +83,7 @@ export const Body = () => {
           >
           </button>
         </div>
-        <div className="flex flex-wrap"
-          test-id="res-list">
+        <div className="flex flex-wrap">
           {filteredRestaurant.map((res) => (
             <Link to={"/Restaurants/" + res.info.id} key={res.info.id}>
               {res.info.promoted ?
